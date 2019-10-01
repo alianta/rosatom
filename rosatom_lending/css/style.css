@@ -1,0 +1,212 @@
+﻿header{
+	height: 10vh;
+	background-color: black;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	position: fixed;
+
+width: 100vw;
+}
+.company-name{
+	color: red;
+	font-size: 26px;
+}
+.menu{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 30%;
+	font-size: 20px;
+}
+.menu-item{
+	color: white;
+	text-decoration: none;
+}
+.menu-item:hover{
+	color: yellow;
+}
+.home{
+	height: 100vh;
+	background-color: gray;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	color: white;
+}
+.info-block{
+	width: 50%;
+}
+.info-block > h2 {
+	text-align: center;
+}
+.home-info-block1, .home-info-block2{
+	width: 48%;
+	display: inline-block;
+	text-align: center;
+}
+.home-info-block2{
+	margin-left: 10px;
+}
+.benefits-header{
+	margin:0;
+	text-align: center;
+	padding-top: 20vh;
+	padding-bottom: 10vh;
+}
+.benefits-block{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.benefits-block > div{
+	width: 20vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+.benefits-block  img{
+	width: 15vw;
+}
+
+.button1, .button2{
+	background-color: red;
+	color: white;
+	padding: 10px 20px;
+	border-color: red;
+	border-radius: 10px;
+}
+.button2{
+	background-color: blue;
+	border-color: blue;
+}
+
+.button1:hover, .button2:hover{
+	box-shadow: 0 0 5px 2px;
+}
+.benefits{
+	height: 100vh;
+	background-color: lightgreen;
+}
+
+.galery{
+	height: 100vh;
+	background-color: lightsalmon;
+}
+.galery  p{
+	font-size: 20px;
+}
+
+.contact{
+	height: 100vh;
+	background-color: lightblue;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.address-block, .contact-us-block{
+	width: 40vw;
+}
+.contact-us-block  input{
+	width: 100%;
+	margin: 10px 0;
+}
+.contact-us-block input[type="submit"]{
+	padding: 5px 0;
+}
+
+
+/* Lightbox */
+.lb, .lb_2, .lb_3{
+   width: 0px;
+   height: 0px;
+   position: fixed;
+   overflow: hidden;
+   left: 0px;
+   top: 0px;
+   padding: 0px;
+   z-index:1000;
+   text-align: center;
+ /*затемнение основного контента*/
+   opacity:0;
+   background: rgba(47,47,56,0.4);       
+   transition: opacity 1.2s linear; 
+}
+/* Оформление картинки полнормазмерной */
+.lb img, .lb_2 img, .lb_3 img {
+   max-height: 100%;
+   position: relative;
+   opacity:1;
+/* оформление на свой вкус*/
+   border:3px solid #ccc;
+   box-shadow: 0px 0px 8px #333;
+}
+
+/* Для ссылки «Закрыть»*/
+.lb a.lb-close , .lb_2 a.lb-close, .lb_3 a.lb-close{
+   display: block;
+   position:absolute;
+   z-index: 1001;
+ /* оформление на свой вкус*/ 
+	color: red;
+	text-transform: uppercase;
+	font-size: 14px;
+   font-weight: 400;
+   overflow:hidden;
+   left: 50%;
+   transform: translateX(-50%);
+
+   /*top:131px;
+   left:46%;
+   width:100px;
+   text-transform: uppercase;
+   font-size: 14px;
+   font-weight: 400;
+   overflow:hidden;
+   opacity: 0;
+   transition: opacity  0.5s 1.5s;*/
+}
+/* Для вывода картинки на экран используем псевдоэлемент :target */
+/*вывод блока "под картинку" */
+.lb:target, .lb_2:target, .lb_3:target  {
+   width: auto;
+   height: auto;
+   bottom: 0px;
+   right: 0px;
+   padding: 175px 100px 120px 100px;
+}
+
+/* вывод картинки  без анимации (1й вид анимаци)*/
+.lb:target img,
+.lb:target a.lb-close, .lb{
+   opacity: 1;
+}  
+ 
+/* вывод картинки с анимацией (2й вид анимаци) */
+
+.lb_2:target img {
+	animation: scaleDown 1.2s ease-in-out;
+}
+.lb_2:target a.lb-close,
+.lb_2:target {
+	opacity: 1;
+}
+
+/* вывод картинки с анимацией (3й вид анимаци) */
+
+.lb_3:target img {
+	animation: scaleDown 1.2s step-start;
+}
+.lb_3:target a.lb-close,
+.lb_3:target {
+	opacity: 1;
+}
+
+@keyframes scaleDown {
+  0% { transform: scale(10,10); opacity: 0; }
+  100% { transform: scale(1,1); opacity: 1; }
+}
